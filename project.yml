@@ -1,0 +1,62 @@
+name: ClearShot
+options:
+  bundleIdPrefix: com.clearshot
+  deploymentTarget:
+    macOS: "13.0"
+  createIntermediateGroups: true
+  xcodeVersion: "15.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    ENABLE_HARDENED_RUNTIME: true
+    CODE_SIGN_STYLE: Automatic
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+targets:
+  ClearShot:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: ClearShot
+        excludes:
+          - "Info.plist"
+    resources:
+      - path: ClearShot/Resources/Assets.xcassets
+    info:
+      path: ClearShot/Info.plist
+      properties:
+        CFBundleDisplayName: ClearShot
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.utilities
+        LSUIElement: false
+        LSMinimumSystemVersion: "13.0"
+        NSHumanReadableCopyright: "Copyright © 2026. Licensed under the MIT License."
+        NSSupportsAutomaticTermination: true
+        NSSupportsSuddenTermination: true
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: ClearShot/ClearShot.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.clearshot.mac
+        PRODUCT_NAME: ClearShot
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_EMIT_LOC_STRINGS: true
+
+schemes:
+  ClearShot:
+    build:
+      targets:
+        ClearShot: all
+    run:
+      config: Debug
+    archive:
+      config: Release
