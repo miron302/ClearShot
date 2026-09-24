@@ -30,7 +30,6 @@ macOS's built-in screenshot tool is fine for a quick grab, but it doesn't let yo
 
 - macOS 13.0 (Ventura) or later
 - Xcode 15 or later
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen) (used to generate the `.xcodeproj` — see below)
 - A free [Google AI Studio](https://aistudio.google.com/apikey) API key if you want to use AI features (optional — the app is fully usable without one)
 
 #
