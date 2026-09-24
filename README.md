@@ -39,35 +39,7 @@ macOS's built-in screenshot tool is fine for a quick grab, but it doesn't let yo
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen) (used to generate the `.xcodeproj` — see below)
 - A free [Google AI Studio](https://aistudio.google.com/apikey) API key if you want to use AI features (optional — the app is fully usable without one)
 
-## Building
-
-ClearShot's `.xcodeproj` is generated from [`project.yml`](project.yml) with XcodeGen rather than committed directly, so the project file never goes stale or produces noisy merge conflicts.
-
-```bash
-# 1. Install XcodeGen (one-time)
-brew install xcodegen
-
-# 2. Generate the Xcode project
-cd ClearShot
-xcodegen generate
-
-# 3. Open and run
-open ClearShot.xcodeproj
-```
-
-Build and run with `⌘R`. On first launch, ClearShot will ask for **Screen Recording** permission — this is required by macOS before any app can capture the screen.
-
-## AI provider setup
-
-1. Open **ClearShot → Settings → Providers**.
-2. Get a free Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey).
-3. Paste it into the **Gemini** section and click **Save** — ClearShot immediately tests the connection.
-4. Pick a model (defaults to `gemini-2.5-flash` for analysis; `gemini-2.5-flash-image` supports the **Edit with AI** flow).
-
-Your key is stored in the macOS Keychain and is only ever sent directly to Google's API over HTTPS when you explicitly trigger an AI action. **API usage is billed by Google according to their own pricing** — ClearShot does not mark up or charge for AI usage itself.
-
-Want to add another provider (OpenAI, Anthropic, a local model, etc.)? Implement the `AIProvider` protocol in `ClearShot/AI/AIProvider.swift` and register an instance in `AIProviderManager`. Nothing else in the app needs to change.
-
+#
 ## Keyboard shortcuts
 
 All shortcuts are re-bindable in **Settings → Shortcuts**.
@@ -89,28 +61,6 @@ All shortcuts are re-bindable in **Settings → Shortcuts**.
 
 Full details are always visible in **Settings → Privacy**.
 
-## Architecture
-
-```
-ClearShot/
-├── App/            App entry point, AppDelegate, hotkey wiring
-├── Capture/        Screen capture service, region/window selection overlays
-├── Models/         Screenshot & provider data models
-├── AI/             AIProvider protocol, Gemini implementation, provider manager
-├── Security/       Keychain-backed API key storage
-├── History/        Local history persistence + browsing UI
-├── Shortcuts/       Global hotkey manager (Carbon) + shortcut recorder UI
-├── UI/
-│   ├── ResultWindow/   Screenshot preview + action panel, AI prompt sheet
-│   ├── MenuBar/        Menu bar dropdown
-│   ├── Settings/       Settings window (General/Shortcuts/Providers/Appearance/Privacy/About)
-│   └── Components/     Shared buttons, toasts, permission primer
-└── Utilities/      App settings, image/file helpers, OCR, error presentation
-```
-
-Screenshot capture uses `CGWindowListCreateImage` rather than macOS 14's `SCScreenshotManager` so the app can genuinely support the macOS 13 baseline stated in its requirements; this is the one deliberate use of a soon-to-be-legacy API and is called out here for transparency. A ScreenCaptureKit-based capture path would be a natural next step for a macOS 14+-only fork.
-
-The app is **not sandboxed** (see `ClearShot.entitlements`), which is standard for GitHub-distributed macOS utilities that need global hotkeys and unrestricted screen capture. See the comment in that file if you're adapting this for Mac App Store distribution.
 
 ## License
 
