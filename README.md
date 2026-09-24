@@ -2,8 +2,6 @@
 
 A fast, native macOS screenshot utility with a polished result UI and optional AI-powered analysis and editing via Google Gemini.
 
-![Platform](https://img.shields.io/badge/platform-macOS%2013%2B-blue) ![Swift](https://img.shields.io/badge/Swift-5.9-orange) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
-
 ## Why ClearShot
 
 macOS's built-in screenshot tool is fine for a quick grab, but it doesn't let you *do* anything with what you just captured. ClearShot keeps the screenshot on screen after capture and gives you a real set of actions — copy, save, annotate, OCR, share, or hand it to an AI model to explain, summarize, or edit — all without leaving the keyboard.
@@ -24,13 +22,9 @@ macOS's built-in screenshot tool is fine for a quick grab, but it doesn't let yo
 
 ## Screenshots
 
-- Placeholder
-- Placeholder
-- Placeholder
-
-| Result panel | Region selection | Settings → Providers |
-|---|---|---|
-| ![Result panel](docs/screenshots/result-placeholder.png) | ![Region selection](docs/screenshots/region-placeholder.png) | ![Providers settings](docs/screenshots/providers-placeholder.png) |
+| Screenshot | HUD | Menu Bar | About |
+| ---------- | --- | -------- | ----- |
+| ![Screenshot](Screenshots/clearshot-screenshot.png) | ![HUD](Screenshots/clearshot-hud.png) | ![Menu Bar](Screenshots/clearshot-menubar.png) | ![About](Screenshots/clearshot-about.png) |
 
 ## Requirements
 
@@ -40,12 +34,13 @@ macOS's built-in screenshot tool is fine for a quick grab, but it doesn't let yo
 - A free [Google AI Studio](https://aistudio.google.com/apikey) API key if you want to use AI features (optional — the app is fully usable without one)
 
 #
+
 ## Keyboard shortcuts
 
 All shortcuts are re-bindable in **Settings → Shortcuts**.
 
 | Action | Default shortcut |
-|---|---|
+| ---------------------- | ---------------- |
 | Open capture chooser | `⌘⇧Space` |
 | Full-screen screenshot | `⌘⇧3` |
 | Region screenshot | `⌘⇧4` |
@@ -61,7 +56,6 @@ All shortcuts are re-bindable in **Settings → Shortcuts**.
 
 Full details are always visible in **Settings → Privacy**.
 
-
 ## License
 
-Released under the [MIT License](LICENSE).
+Released under the [GNU General Public License v3.0](LICENSE).
