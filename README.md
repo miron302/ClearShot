@@ -1,4 +1,4 @@
-<p align="left">
+<p align="center">
   <img src="ClearShot/Resources/AppIcon.appiconset/icon_512x512@2x.png" width="180" alt="ClearShot">
 </p>
 
