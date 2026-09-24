@@ -1,3 +1,13 @@
+<p align="left">
+  <img src="ClearShot/Resources/AppIcon.appiconset/icon_512x512@2x.png" width="180" alt="ClearShot">
+</p>
+
+<h1 align="center">ClearShot</h1>
+
+<p align="center">
+  A fast, native macOS screenshot utility with a polished result UI and optional AI-powered analysis and editing via Google Gemini.
+</p>
+
 # ClearShot
 
 A fast, native macOS screenshot utility with a polished result UI and optional AI-powered analysis and editing via Google Gemini.
